@@ -1,13 +1,22 @@
-import random
 from surtidor import Surtidor
+from coche import Coche
 
+t_pagar = 3
 surtidor = Surtidor()
+i = 0 # contador de tiempo (en minutos)
 
-while True:
-    t = random.randint(0, 15) # Se escoge aleatoriamente el tiempo en el que viene el siguiente coche
-    for i in range(16): # Pasa el tiempo por cada vez que se ejecuta bucle for
-        if i == t: # Sólo entramos si ha pasado el tiempo en el que llega el siguiente coche
-            print('Entra un coche a la gasolinera')
+# CREAMOS COLA DE COCHES ORDENADAS POR TIEMPO DE LLEGADA
+cola_coches = []
+for i in range(0, 50):
+    coche = Coche()
+    if len(cola_coches) == 0:
+        cola_coches.append(coche)
+    else:
+        i = -1
+        for coche_delante in cola_coches:
+            i = i + 1 # Para obtener la posicion del coche en la cola
+            if coche_delante.t_llegada > coche.t_llegada:
+                cola_coches.insert(i, coche)
+                break
 
-            
 
