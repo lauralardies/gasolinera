@@ -4,7 +4,7 @@ class Coche():
     def __init__(self):
         self.t_llegada = random.randint(0, 15) # Tiempo que tarda en llegar a la gasolinera.
         self.t_surtidor = random.randint(5, 10) # Tiempo que tarda en echar gasolina.
-        self.t_total = self.t_llegada + self.t_surtidor + 3
+        self.t_total = 0
     
     def get_llegada(self):
         '''

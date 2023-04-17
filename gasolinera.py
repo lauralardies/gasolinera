@@ -32,7 +32,7 @@ while True:
         else:
             surtidor.cola.append(cola_coches[0])
         cola_coches.remove(cola_coches[0]) # Borramos el coche de la cola de coches
-        
+
     if surtidor.ocupado == True:
         contador_gasolina = contador_gasolina + 1
         if contador_gasolina == surtidor.cliente.t_surtidor:
@@ -43,6 +43,8 @@ while True:
         contador_pago = contador_pago + 1
         if contador_pago == 3:
                 print('El cliente ya ha pagado, se va.')
+                tienda.pagando = False
+                surtidor.cliente.t_total = contador - surtidor.cliente.t_llegada
                 surtidor.cliente = surtidor.cola[0]
                 surtidor.cola.remove(surtidor.cola[0])
                 contador_gasolina = -1
