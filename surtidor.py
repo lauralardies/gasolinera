@@ -1,6 +1,7 @@
 class Surtidor():
     def __init__(self):
         self.ocupado = False # Comienza el surtidor desocupado
+        self.cliente = None # Coche que está echando gasolina.
         self.cola = [] # Como comienza desocupado, la cola está vacía --> NO se cuenta la persona que está echando la gasolina
     
     def ocupado(self):
